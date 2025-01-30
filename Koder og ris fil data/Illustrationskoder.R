@@ -1,8 +1,8 @@
 # For CRAN version
 # install.packages("AIscreenR")
 
-# Udviklingspakken. PÅ nuværende tidspunkt indeholder denne nye funktioner 
-# til at skabe fine tuned data og der kommer også snart til at ligge den 
+# Udviklingspakken. På nuværende tidspunkt indeholder denne nye funktioner 
+# til at skabe fine tuned data og der kommer også snart til at ligge en 
 # report funktion som jeg fremviser til sidst i scriptet.  
 
 # install.packages("devtools")
@@ -28,7 +28,6 @@ getwd()
 ris_dat_excl <- synthesisr::read_refs("irrelevant_amh-review.ris") 
 
 set.seed(291024)
-
 # Lav test data ved at sample x antal referencer ----------
 excluded_sample <- 
   ris_dat_excl |> 
@@ -202,7 +201,7 @@ plan(sequential)
 # 
 #saveRDS(dis_res, file = "disagreement_description_res_obj_4o-mini_10reps.rds")
 # Worst case
-#dis_res <- readRDS("disagreement_description_res_obj_4o-mini_10reps.rds")
+dis_res <- readRDS("disagreement_description_res_obj_4o-mini_10reps.rds")
 
 dis_res$answer_data_aggregated |> select(author, abstract, final_decision_gpt, longest_answer) |> View()
 
@@ -214,7 +213,7 @@ report(
   title = title, 
   abstract = abstract, 
   answer = longest_answer, 
-  format = "html_document"
+  format = "word_document"
 )
 
 # Anslå pris-----------
